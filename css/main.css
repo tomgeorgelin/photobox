@@ -1,0 +1,455 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: arial;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+div, nav, section, p, h1, h2 {
+	box-sizing: border-box;
+}
+
+nav {
+	padding: 2em;
+	font-size: 1.2em;
+	text-align: center;
+	background-color: rgba(155,155,155,.05);
+	margin-bottom: 1%;
+}
+nav * {
+	font-size: 1.2em;
+}
+
+nav #next {
+	margin-left: 15%;
+}
+
+.gallery-container {
+}
+
+.lightboc_container {
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgba(0,0,0,.9); 
+	color: white;
+}
+
+.lightboc_container img {
+	width: 100%;
+	border-radius: 5px;
+	box-shadow: inset 20px 20px black;
+}
+
+#lightbox-img, #lightbox_title {
+	margin-top: 5%;
+	font-weight: 600;
+	text-align: center;
+}
+#lightbox-img {
+
+	width: 50%;
+	margin: 5% auto;
+	border-radius: 20px 20px 0px 0px;
+	background-color: #4CAF50;
+	padding: 2%;
+}
+
+#lightbox_close {
+	position: absolute;
+	top: 2%;
+	right: 2%;
+}
+
+#lightbox_close {
+	display: inline-block;
+	padding: 10px 15px;
+	font-size: 18px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #f05146;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 4px #999;
+}
+
+#lightbox_close:hover {
+	background-color: #c9382e
+}
+
+#lightbox_close:active {
+	background-color: #c9382e;
+	box-shadow: 0 2px #666;
+	transform: translateY(4px);
+}
+
+.gallery-container {
+	width: 85%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 20px;
+	grid-row-gap: 30px;
+	margin-bottom: 2%;
+}
+/*500*/
+
+.vignette {
+	text-align: center;
+	background-color: #4caf50;
+	display: grid;
+	grid-template: "img"95%"text"5%;
+	padding: 50px 20px 20px 20px;
+	box-shadow: 0px 10px 15px rgba(0,0,0,.2);
+	border-radius: 25px 25px 0px 0px;
+	color: #fafafa; 
+	min-height: 100%;
+	height: max-content;
+}
+.vignette img {
+	width: 90%;
+	margin: 0 auto 0 auto;
+	border-radius: 10px 10px 0px 0px;
+	box-shadow: 0px 10px 15px rgba(0,0,0,.2);
+	transition: box-shadow .5s, width .5s;
+}
+.vignette:hover {
+	cursor: pointer;
+}
+	
+.vignette img:hover {
+	animation: shaking 1.5s infinite;
+	box-shadow: 0px 10px 15px rgba(0,0,0,.5);
+	width: 95%;
+}
+
+@keyframes shaking {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	80% {
+		transform: rotate(0deg);
+	}
+
+	85% {
+		transform: rotate(2deg);
+	}
+
+	90% {
+		transform: rotate(-2deg);
+	}
+
+	95% {
+		transform: rotate(2deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}	
+}
+
+#previous-lightbox, #next-lightbox{
+	position: absolute;
+	top: 20%;
+	min-height: 50px;
+	margin: auto;
+}
+
+#previous-lightbox, #previous {
+	/*display: inline-block;*/
+	left: 0px;
+	border-radius: 4px;
+	background-color: #4CAF50;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 150px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+#previous-lightbox span, #previous span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+#previous-lightbox span:after, #previous span:after {
+	content: '\00ab';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left:-20px;
+	transition: 0.5s;
+}
+
+#previous-lightbox:hover span, #previous:hover span {
+	padding-left: 25px;
+}
+
+#previous-lightbox:hover span:after, #previous:hover span:after {
+	opacity: 1;
+	left: 0;
+}
+#next-lightbox, #next {
+	/*display: inline-block;*/
+	right: 0px;
+	border-radius: 4px;
+	background-color: #4CAF50;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	width: 150px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+#next-lightbox span, #next span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+#next-lightbox span:after, #next span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+#next-lightbox:hover span, #next:hover span {
+	padding-right: 25px;
+}
+
+#next-lightbox:hover span:after, #next:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+#previous, #next {
+	width: 350px;
+	background-color: white;
+	border: solid #237f26 5px;
+	border-radius: 10px;
+	color: #237f26;
+}
+
+.comments {
+	width: 80%;
+	margin: auto;
+	background-color: rgba(76, 175, 80, .4);
+	padding: 1%;
+	border-radius: 8px 8px 0px 0px;
+	display: grid;
+	grid-template: "titre titre""content content""pseudo date";
+}
+#titreComment {
+	text-align: center;
+	grid-area: titre;
+	margin-bottom: 15px;
+}
+#contentComment {
+	margin-left: 10px;
+	margin-bottom: 15px;
+	grid-area: content;
+}
+
+#pseudoComment {
+	float: left;
+	grid-area: pseudo;
+}
+
+#dateComment {
+	float: right;
+	grid-area: date;
+	text-align: right;
+}
+
+#details {
+	display: grid;
+	grid-template: "a a a""b c c""d e f";
+	width: 80%;
+	margin: auto;
+	margin-bottom: 2%;
+	background-color: rgba(76, 175, 80,.8);
+	border-radius: 10px 0px;
+}
+
+#details div {
+	padding: 10px;
+}
+
+#lightbox_descr_div {
+	grid-area: a;  
+	text-align: justify;
+}
+
+#lightbox_format_div {
+	grid-area: b;
+	text-align: center;  
+}
+
+#lightbox_type_div {
+	grid-area: c;
+	text-align: center;
+}
+
+#lightbox_size_div {
+	grid-area: d;
+	text-align: center;  
+}
+
+#lightbox_width_div {
+	grid-area: e;
+	text-align: center;  
+}
+
+#lightbox_height_div {
+	grid-area: f;
+	text-align: center;  
+}
+
+#addComment {
+	background-color: rgba(76, 175, 80,.4);
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 10px 0px;
+	padding: 10px 0px 10px 0px;
+	margin-bottom: 2%;
+}
+
+#addComment h3 {
+	text-align: center;
+	margin-bottom: 2%;
+}
+#addComment form {
+	display: grid;
+	grid-template: "a b""c c""d d";
+	width: 80%;
+	margin: auto;
+}
+
+#addComment input {
+	height: 25px;
+	/*text-align: center;*/
+	width: 90%;
+	margin: auto;
+	border-radius: 5px 5px 0px 0px;
+	border: none;
+}
+
+#addComment input[name="title"] {
+	grid-area: a;
+	padding-left: 5px;
+	margin-bottom: 5px;
+}
+
+#addComment input[name="pseudo"] {
+	grid-area: b;
+	padding-left: 5px;
+	margin-bottom: 5px;
+}
+
+#addComment input[name="message"] {
+	grid-area: c;
+	padding-left: 5px;
+	margin-bottom: 5px;
+}
+
+#addComment input[name="submit"] {
+	grid-area: d;
+	width: 80px;
+	height: 35px;
+	margin: 0 auto;
+	border-radius: 0px;
+	background-color: #4caf50;
+	color: white;
+}
+
+@media screen and (max-width: 950px) {
+	.gallery-container{
+		grid-template-columns: repeat(2, 1fr);
+
+	}
+
+	#previous, #next{
+		width: 155px;
+		font-size: 1em;
+	}
+
+	nav #next {
+		margin-left: 5px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.gallery-container{
+		grid-template-columns: repeat(1, 1fr);
+
+	}
+}

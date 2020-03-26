@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet"   href="css/main.css">
+
+	<title>photobox</title>
+</head>
+<body>
+
+	<nav>
+		<button class="buttonLight" id="previous"><span>Previous page</span></button>
+		<button class="buttonLight" id="next"><span>Next page</span></button>
+	</nav>
+
+	<main id="gallery">
+		<div class="gallery-container" id="photobox-gallery">
+
+		</div>
+
+		<div class="lightboc_container" id="lightbox_container">
+			<div id="lightbox">
+				<div id="lightbox-head">
+					<button id="lightbox_close">&times;</button>
+				</div>
+
+				<div id="lightbox-img">
+					<img id="lightbox_full_img" src="">
+					<h1 id="lightbox_title"></h1>
+				</div>
+				<button class="buttonLight" id="previous-lightbox"><span>Prev </span></button>
+				<button class="buttonLight" id="next-lightbox"><span>Next </span></button>
+				<div id="details">
+					<div id="lightbox_descr_div">Description : <span id="lightbox_descr"></span></div>
+					<div id="lightbox_format_div">Format : <span id="lightbox_format"></span></div>
+					<div id="lightbox_type_div">Type : <span id="lightbox_type"></span></div>
+					<div id="lightbox_size_div">Size : <span id="lightbox_size"></span></div>
+					<div id="lightbox_width_div">Width : <span id="lightbox_width"></span></div>
+					<div id="lightbox_height_div">Height : <span id="lightbox_height"></span></div>
+				</div>
+				<div id="addComment">
+					<h3>Add comment</h3>
+					<form>
+						<input type="text" name="pseudo" placeholder="Pseudo">
+						<input type="text" name="title" placeholder="Title">
+						<input type="text" name="message" placeholder="Message">
+						<input type="button" name="submit" value="Submit">
+					</form>
+				</div>
+				<div id="comments">
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script> window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>') </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+	<script type="module" src="photobox.js"></script>
+</body>
+</html>
